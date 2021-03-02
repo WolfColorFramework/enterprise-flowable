@@ -120,7 +120,7 @@ public class WorkflowStep extends Model<WorkflowStep> {
     /**
      * 节点索引
      */
-    @TableField(exist = false)
+    @TableField("node_index")
     private Integer nodeIndex;
 
     @Override
