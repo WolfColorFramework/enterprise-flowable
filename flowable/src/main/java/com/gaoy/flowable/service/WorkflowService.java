@@ -13,9 +13,9 @@ import java.util.List;
 @Service
 public interface WorkflowService extends IService<Workflow> {
 
-    String start(WorkflowArgs args);
+    String start(WorkflowArgs args, String loginUserId);
 
-    Boolean pass(WorkflowArgs args);
+    Boolean pass(WorkflowArgs args, String loginUserId);
 
     Boolean cancel(Workflow workflow);
 
@@ -41,9 +41,9 @@ public interface WorkflowService extends IService<Workflow> {
      */
     String lastStepStatus(String domainId);
 
-    WorkflowStep unActionStep(String userId, Workflow workflow);
+    WorkflowStep unActionStep(Workflow workflow, String loginUserId);
 
-    WorkflowStep unActionStep(String domainId, String userId);
+    WorkflowStep unActionStep(String domainId, String loginUserId);
 
     /**
      * 获取有效的流程步骤

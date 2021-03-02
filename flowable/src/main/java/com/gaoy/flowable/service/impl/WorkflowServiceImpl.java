@@ -56,9 +56,9 @@ public class WorkflowServiceImpl extends ServiceImpl<WorkflowMapper, Workflow> i
      * @throws Exception
      */
     @Override
-    public String start(WorkflowArgs args) {
+    public String start(WorkflowArgs args, String loginUserId) {
         //启动流程
-        List<WorkflowStep> list = workFlowCore.start(args);
+        List<WorkflowStep> list = workFlowCore.start(args, loginUserId);
         if (list == null) {
             throw new IllegalArgumentException("创建流程步骤失败");
         }
@@ -72,9 +72,9 @@ public class WorkflowServiceImpl extends ServiceImpl<WorkflowMapper, Workflow> i
      * @return
      */
     @Override
-    public Boolean pass(WorkflowArgs args) {
-        List<WorkflowStep> pass = workFlowCore.pass(args);
-        return true;
+    public Boolean pass(WorkflowArgs args, String loginUserId) {
+        List<WorkflowStep> pass = workFlowCore.pass(args, loginUserId);
+        return pass != null;
     }
 
     /**
@@ -190,14 +190,14 @@ public class WorkflowServiceImpl extends ServiceImpl<WorkflowMapper, Workflow> i
     }
 
     @Override
-    public WorkflowStep unActionStep(String userId, Workflow workflow) {
-        return stepService.unActionStep(workflow, userId);
+    public WorkflowStep unActionStep(Workflow workflow, String loginUserId) {
+        return stepService.unActionStep(workflow, loginUserId);
     }
 
     @Override
-    public WorkflowStep unActionStep(String domainId, String userId) {
+    public WorkflowStep unActionStep(String domainId, String loginUserId) {
         Workflow workFlow = this.getOne(new LambdaQueryWrapper<Workflow>().eq(Workflow::getDomainId, domainId));
-        return unActionStep(userId, workFlow);
+        return unActionStep(workFlow, loginUserId);
     }
 
     @Override
