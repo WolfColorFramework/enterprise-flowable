@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class DefaultChat implements ChartCore {
+public class DefaultChart implements ChartCore {
 
     @Override
     public DefaultViewNode drawWorkflow(List<Node> nodes, List<WorkflowStep> steps) {
