@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoy.flowable.dao.WorkflowStepMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gaoy.flowable.entity.WorkflowStep">
+        <id column="id" property="id"/>
+        <result column="workflow_id" property="workflowId"/>
+        <result column="domain_id" property="domainId"/>
+        <result column="domain_name" property="domainName"/>
+        <result column="node_id" property="nodeId"/>
+        <result column="node_name" property="nodeName"/>
+        <result column="action_user_id" property="actionUserId"/>
+        <result column="action_user_name" property="actionUserName"/>
+        <result column="pre_step_id" property="preStepId"/>
+        <result column="suggest" property="suggest"/>
+        <result column="result" property="result"/>
+        <result column="file_url" property="fileUrl"/>
+        <result column="file_description" property="fileDescription"/>
+        <result column="action_time" property="actionTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="delete_time" property="deleteTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, workflow_id, domain_id, domain_name, node_id, node_name, action_user_id, action_user_name, pre_step_id, suggest, result, file_url, file_description, action_time, create_time, delete_time
+    </sql>
+
+</mapper>

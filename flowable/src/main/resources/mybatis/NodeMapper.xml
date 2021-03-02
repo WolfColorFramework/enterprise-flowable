@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoy.flowable.dao.NodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gaoy.flowable.entity.FNode">
+        <id column="node_id" property="nodeId"/>
+        <result column="template_id" property="templateId"/>
+        <result column="order_index" property="orderIndex"/>
+        <result column="node_name" property="nodeName"/>
+        <result column="multiple_approve" property="multipleApprove"/>
+        <result column="back_node" property="backNode"/>
+        <result column="expression" property="expression"/>
+        <result column="expression_description" property="expressionDescription"/>
+        <result column="enable_back" property="enableBack"/>
+        <result column="jump" property="jump"/>
+        <result column="create_time" property="createTime"/>
+        <result column="delete_time" property="deleteTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        node_id, template_id, order_index, node_name, multiple_approve, back_node, expression, expression_description, enable_back, jump, create_time, delete_time
+    </sql>
+</mapper>

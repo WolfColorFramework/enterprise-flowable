@@ -3,8 +3,5 @@ package com.gaoy.flowable.config;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class FlowableConfig {
-
-
-
+public class WorkflowConfig {
 }
