@@ -136,7 +136,6 @@ public class WorkflowServiceExpandImpl implements WorkflowServiceExpand {
             }
         }
         return Lists.newArrayList();
-
     }
 
     @Override
