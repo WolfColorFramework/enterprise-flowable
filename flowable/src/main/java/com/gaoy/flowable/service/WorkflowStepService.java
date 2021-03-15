@@ -12,14 +12,6 @@ import java.util.List;
 public interface WorkflowStepService extends IService<WorkflowStep> {
 
     /**
-     * 创建第一步流程
-     *
-     * @param workFlow 流程
-     * @return
-     */
-    WorkflowStep createFirstStep(Workflow workFlow);
-
-    /**
      * 通过
      *
      * @param step 流程步
@@ -35,7 +27,7 @@ public interface WorkflowStepService extends IService<WorkflowStep> {
      * @param args 参数
      * @return
      */
-    WorkflowStep back(WorkflowStep step, Boolean backFirst, WorkflowArgs args);
+    List<WorkflowStep> back(WorkflowStep step, Boolean backFirst, WorkflowArgs args);
 
     /**
      * 用户未处理流程步
@@ -53,5 +45,12 @@ public interface WorkflowStepService extends IService<WorkflowStep> {
      * @return
      */
     List<WorkflowStep> stepsOfWorkflow(Workflow workflow);
+
+    /**
+     * 创建流程第一个步骤
+     * @param workFlow
+     * @return
+     */
+    WorkflowStep createFirstStep(Workflow workFlow);
 
 }

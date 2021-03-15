@@ -13,51 +13,15 @@ import java.util.List;
 @Service
 public interface WorkflowService extends IService<Workflow> {
 
-    String start(WorkflowArgs args, String loginUserId);
+    List<WorkflowStep> start(WorkflowArgs args, String loginUserId);
 
-    Boolean pass(WorkflowArgs args, String loginUserId);
+    Boolean pass(Workflow workflow, WorkflowArgs args, String loginUserId);
 
     Boolean cancel(Workflow workflow);
 
-    Boolean back(WorkflowArgs args);
+    Boolean back(Workflow workflow, WorkflowArgs args);
 
     Boolean abort(Workflow workflow, WorkflowUser firstUser);
 
     Boolean obsolete(Workflow workflow);
-
-    /**
-     * 流程处理状态
-     *
-     * @param domainId
-     * @return
-     */
-    List<WorkflowStep> workflowActionStatus(String domainId);
-
-    /**
-     * 最后一步状态
-     *
-     * @param domainId
-     * @return
-     */
-    String lastStepStatus(String domainId);
-
-    WorkflowStep unActionStep(Workflow workflow, String loginUserId);
-
-    WorkflowStep unActionStep(String domainId, String loginUserId);
-
-    /**
-     * 获取有效的流程步骤
-     *
-     * @param workflowId 工作流Id
-     * @return
-     */
-    List<WorkflowStep> effectiveSteps(String workflowId);
-
-    /**
-     * 画图
-     *
-     * @param workflowId 工作流Id
-     * @return
-     */
-    DefaultViewNode chartWorkflow(String workflowId);
 }

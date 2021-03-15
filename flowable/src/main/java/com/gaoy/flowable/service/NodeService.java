@@ -26,4 +26,19 @@ public interface NodeService extends IService<Node> {
      */
     List<Node> nodesOfTemplate(String templateId, Integer orderIndex);
 
+    /**
+     * 下一节点
+     * @param node 节点
+     * @return
+     */
+    List<Node> nextNodes(Node node);
+
+    /**
+     * 下一节点
+     * @param templateId 模板Id
+     * @param orderIndex 当前节点Index
+     * @return
+     */
+    List<Node> nextNodes(String templateId, Integer orderIndex);
+
 }

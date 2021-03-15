@@ -15,13 +15,12 @@ public class JsExecution {
      * @param expression
      * @return
      */
-    public static Object result(Map<String, Object> map, String expression) {
+    public static boolean result(Map<String, Object> map, String expression) {
         FelEngine fel = new FelEngineImpl();
         FelContext ctx = fel.getContext();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             ctx.set(entry.getKey(), entry.getValue());
         }
-        Object result = fel.eval(expression);
-        return result;
+        return (boolean)fel.eval(expression);
     }
 }
